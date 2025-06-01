@@ -11,5 +11,5 @@ Click the button below to deploy the storage account to your Azure subscription.
 ### Instructions
 
 - Click the button to open Azure Portal custom deployment with the template preloaded.
-- Select Resource Group, location, and SKU if needed.
+- Select Storage Account Name, Resource Group, location, and SKU if needed.
 - Complete deployment by following the portal wizard.
