@@ -2,6 +2,15 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "storageAccountName": {
+      "type": "string",
+      "defaultValue": "[toLower(concat('st', uniqueString(resourceGroup().id, deployment().name)))]",
+      "metadata": {
+        "description": "Unique name for the Storage Account (3–24 lowercase letters/numbers)"
+      },
+      "minLength": 3,
+      "maxLength": 24
+    },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
@@ -23,14 +32,11 @@
       }
     }
   },
-  "variables": {
-    "uniqueStorageAccountName": "[toLower(concat('st', uniqueString(resourceGroup().id, deployment().name)))]"
-  },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2022-09-01",
-      "name": "[variables('uniqueStorageAccountName')]",
+      "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('skuName')]"
@@ -44,11 +50,11 @@
   "outputs": {
     "storageAccountName": {
       "type": "string",
-      "value": "[variables('uniqueStorageAccountName')]"
+      "value": "[parameters('storageAccountName')]"
     },
     "storageAccountId": {
       "type": "string",
-      "value": "[resourceId('Microsoft.Storage/storageAccounts', variables('uniqueStorageAccountName'))]"
+      "value": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
     }
   }
 }
