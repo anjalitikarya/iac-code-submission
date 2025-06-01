@@ -4,9 +4,8 @@
   "parameters": {
     "storageAccountName": {
       "type": "string",
-      "defaultValue": "[toLower(concat('st', uniqueString(resourceGroup().id, deployment().name)))]",
       "metadata": {
-        "description": "Unique name for the Storage Account (3–24 lowercase letters/numbers)"
+        "description": "Globally unique name for the Storage Account (3–24 lowercase letters and numbers)"
       },
       "minLength": 3,
       "maxLength": 24
@@ -15,7 +14,7 @@
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
-        "description": "Location for the Storage Account"
+        "description": "Azure region where the storage account will be deployed"
       }
     },
     "skuName": {
@@ -28,7 +27,7 @@
         "Premium_LRS"
       ],
       "metadata": {
-        "description": "SKU for the Storage Account"
+        "description": "SKU type for the Storage Account"
       }
     }
   },
