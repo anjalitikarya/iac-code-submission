@@ -1,0 +1,16 @@
+# Development Journal
+
+Date Started: 2025-05-30
+
+Objective:
+- Build a PoC for Azure infrastructure deployment using ARM templates and Deploy to Azure button.
+
+Process:
+- Created ARM JSON template for Azure Storage Account.
+- Added Deploy to Azure button with correct raw template URL.
+- Tested deployment successfully in Azure portal.
+- Ensured all code and docs stored in private GitHub repository.
+
+Notes:
+- Used Azure portal and GitHub for testing.
+- Template verified with Azure portal custom deployment flow.
